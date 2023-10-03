@@ -1,0 +1,17 @@
+const BTreeNode* BTreeSearch(const BTreeNode* node, int key){
+  if(node == nullptr){
+    return nullptr;
+  }
+  if(node->A == key || node->B == key){
+    return node;
+  }
+  else if(key < node->A){
+    return BTreeSearch(node->left, key);
+  }
+  else if(node->B == 0 || key > node->B){
+    return BTreeSearch(node->right, key);
+  }
+  return BTreeSearch(node->middle, key);
+}
+
+
